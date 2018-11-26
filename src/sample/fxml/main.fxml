@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 
-
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="643.0" prefWidth="1014.0" stylesheets="@../style/DarkTheme.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="643.0" prefWidth="1014.0" stylesheets="@../style/DarkTheme.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
    <center>
-      <GridPane styleClass="background" stylesheets="@../style/DarkTheme.css" BorderPane.alignment="CENTER">
+      <GridPane fx:id="golPane" hgap="1.0" prefHeight="500.0" prefWidth="500.0" styleClass="background" stylesheets="@../style/DarkTheme.css" vgap="1.0" BorderPane.alignment="CENTER">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -21,19 +21,31 @@
         <rowConstraints>
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </padding>
       </GridPane>
    </center>
    <right>
-      <ScrollPane prefHeight="557.0" prefWidth="222.0" stylesheets="@../style/DarkTheme.css" BorderPane.alignment="CENTER">
-        <content>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0" />
-        </content>
+      <ScrollPane fx:id="scrollPane" prefHeight="557.0" prefWidth="222.0" styleClass="scroll-bar" stylesheets="@../style/DarkTheme.css" vbarPolicy="ALWAYS" BorderPane.alignment="CENTER">
+         <content>
+            <GridPane>
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+            </GridPane>
+         </content>
       </ScrollPane>
    </right>
    <bottom>
-      <HBox prefHeight="75.0" prefWidth="1012.0" styleClass="background" stylesheets="@../style/DarkTheme.css" BorderPane.alignment="CENTER">
+      <HBox prefHeight="75.0" prefWidth="1012.0" stylesheets="@../style/DarkTheme.css" BorderPane.alignment="CENTER">
          <children>
             <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="150.0" text="START" textAlignment="CENTER">
                <HBox.margin>
@@ -59,19 +71,41 @@
          <padding>
             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
          </padding>
+         <styleClass>
+            <String fx:value="button-flat" />
+            <String fx:value="background" />
+            <String fx:value="button-raised" />
+            <String fx:value="toggle-button" />
+         </styleClass>
       </HBox>
    </bottom>
    <left>
-      <GridPane styleClass="background" stylesheets="@../style/DarkTheme.css" BorderPane.alignment="CENTER">
+      <GridPane prefHeight="568.0" prefWidth="199.0" stylesheets="@../style/DarkTheme.css" BorderPane.alignment="CENTER">
         <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
         </columnConstraints>
         <rowConstraints>
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="269.0" minHeight="0.0" prefHeight="80.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="269.0" minHeight="10.0" prefHeight="80.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="269.0" minHeight="10.0" prefHeight="80.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="269.0" minHeight="10.0" prefHeight="80.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="308.0" minHeight="0.0" prefHeight="80.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="308.0" minHeight="10.0" prefHeight="80.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="342.0" minHeight="10.0" prefHeight="200.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="200.0" vgrow="SOMETIMES" />
         </rowConstraints>
+         <children>
+            <Label prefHeight="31.0" prefWidth="105.0" styleClass="label-header-small" stylesheets="@../style/DarkTheme.css" text="Generation" />
+            <Label prefHeight="30.0" prefWidth="138.0" styleClass="label-header-small" stylesheets="@../style/DarkTheme.css" text="Selected pattern" GridPane.rowIndex="4" />
+            <Label fx:id="generationLabel" prefHeight="30.0" prefWidth="73.0" styleClass="label-bright" stylesheets="@../style/DarkTheme.css" GridPane.rowIndex="1" />
+            <Label prefHeight="32.0" prefWidth="106.0" styleClass="label-header-small" stylesheets="@../style/DarkTheme.css" text="Live cells" GridPane.rowIndex="2" />
+            <Label fx:id="livecellsLabel" prefHeight="21.0" prefWidth="85.0" styleClass="label-bright" stylesheets="@../style/DarkTheme.css" GridPane.rowIndex="3" />
+            <Label fx:id="selectedpatternLabel" prefHeight="28.0" prefWidth="99.0" styleClass="label-bright" stylesheets="@../style/DarkTheme.css" GridPane.rowIndex="5" />
+         </children>
+         <styleClass>
+            <String fx:value="background" />
+            <String fx:value="label-bright" />
+         </styleClass>
       </GridPane>
    </left>
 </BorderPane>

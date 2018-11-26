@@ -30,8 +30,7 @@ public class Cell extends Rectangle {
         this.isAliveNext = isAliveNext;
     }
 
-    public Cell(boolean isAlive, boolean isAliveNext, double size,
-                int row, int col) {
+    public Cell(boolean isAlive, boolean isAliveNext, double size, int row, int col) {
         super(size, size);
         this.row = row;
         this.col = col;
