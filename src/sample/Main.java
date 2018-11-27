@@ -28,7 +28,7 @@ public class Main extends Application {
         primaryStage.setMinHeight(750);
         primaryStage.setMinWidth(1100);
         primaryStage.setResizable(false);
-        primaryStage.setScene(new Scene(fxmlMain, 850, 500));
+        primaryStage.setScene(new Scene(fxmlMain, 900, 500));
         primaryStage.setOnCloseRequest(new EventHandler<WindowEvent>() {
             @Override
             public void handle(WindowEvent t) {

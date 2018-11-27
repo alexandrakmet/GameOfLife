@@ -12,60 +12,27 @@
 .label-bright {
     -fx-font-size: 11pt;
     -fx-font-family: "Segoe UI Semibold";
-    -fx-text-fill: white;
+    -fx-text-fill: yellow;
     -fx-opacity: 1;
 }
 
 .label-header {
     -fx-font-size: 32pt;
     -fx-font-family: "Segoe UI Light";
-    -fx-text-fill: white;
+    -fx-text-fill: yellow;
     -fx-opacity: 1;
+    -fx-font-weight: bold;
 }
 
 .label-header-small {
     -fx-font-size: 15pt;
     -fx-font-family: "Segoe UI Light";
-    -fx-text-fill: white;
+    -fx-text-fill: yellow;
     -fx-opacity: 1;
+
 }
 
-.table-view {
-    -fx-base: #1d1d1d;
-    -fx-control-inner-background: #1d1d1d;
-    -fx-background-color: #1d1d1d;
-    -fx-table-cell-border-color: transparent;
-    -fx-table-header-border-color: transparent;
-    -fx-padding: 5;
-}
 
-.table-view .column-header-background {
-    -fx-background-color: transparent;
-}
-
-.table-view .column-header, .table-view .filler {
-    -fx-size: 35;
-    -fx-border-width: 0 0 1 0;
-    -fx-background-color: transparent;
-    -fx-border-color:
-            transparent
-            transparent
-            derive(-fx-base, 80%)
-            transparent;
-    -fx-border-insets: 0 10 1 0;
-}
-
-.table-view .column-header .label {
-    -fx-font-size: 20pt;
-    -fx-font-family: "Segoe UI Light";
-    -fx-text-fill: white;
-    -fx-alignment: center-left;
-    -fx-opacity: 1;
-}
-
-.table-view:focused .table-row-cell:filled:focused:selected {
-    -fx-background-color: -fx-focus-color;
-}
 
 .split-pane:horizontal > .split-pane-divider {
     -fx-border-color: transparent #1d1d1d transparent #1d1d1d;
@@ -102,13 +69,13 @@
 
 .button {
     -fx-padding: 5 22 5 22;
-    -fx-border-color: #e2e2e2;
+    -fx-border-color: yellow; /*#e2e2e2;*/
     -fx-border-width: 2;
     -fx-background-radius: 0;
     -fx-background-color: #1d1d1d;
     -fx-font-family: "Segoe UI", Helvetica, Arial, sans-serif;
     -fx-font-size: 11pt;
-    -fx-text-fill: #d8d8d8;
+    -fx-text-fill: yellow;/* #d8d8d8;*/
     -fx-font-weight: bold;
     -fx-background-insets: 0 0 0 0, 0, 1, 2;
 }
@@ -118,12 +85,12 @@
 }
 
 .button:pressed, .button:default:hover:pressed {
-    -fx-background-color: white;
+    -fx-background-color: yellow;
     -fx-text-fill: #1d1d1d;
 }
 
 .button:focused {
-    -fx-border-color: white, white;
+    -fx-border-color: yellow, yellow;
     -fx-border-width: 1, 1;
     -fx-border-style: solid, segments(1, 1);
     -fx-border-radius: 0, 0;
@@ -133,12 +100,12 @@
 .button:disabled, .button:default:disabled {
     -fx-opacity: 0.4;
     -fx-background-color: #1d1d1d;
-    -fx-text-fill: white;
+    -fx-text-fill: yellow;
 }
 
 .button:default {
     -fx-background-color: -fx-focus-color;
-    -fx-text-fill: #ffffff;
+    -fx-text-fill: yellow;/*#ffffff;*/
 }
 
 .button:default:hover {
@@ -159,14 +126,14 @@
 
 .scroll-bar:vertical>.track-background, .scroll-bar:horizontal>.track-background
 {
-    -fx-background-color: white;
+    -fx-background-color: #1d1d1d;
     -fx-background-insets: 0.0;
 }
 
 .scroll-bar:vertical>.thumb, .scroll-bar:horizontal>.thumb {
-    -fx-background-color: #1c1c1c;
+    -fx-background-color: yellow;
     -fx-background-insets: 0.0;
-    -fx-background-radius: 4.0;
+    -fx-background-radius: 6.0;
 }
 
 .scroll-bar>.increment-button, .scroll-bar>.decrement-button,
@@ -180,12 +147,31 @@
     -fx-background-color: black;
 }
 
+.scroll-bar>.increment-button,.scroll-bar>.decrement-button
+{
+    -fx-background-color: yellow;
+}
+
 .scroll-bar>.track-background {
     -fx-background-color: white;
 }
 
 
 
+
+.slider .thumb {
+    -fx-background-color: yellow;
+    -fx-padding: 10;
+}
+
+
+.slider .track{
+    -fx-background-color: gray;
+}
+
+.slider .tickLabel{
+
+}
 /*******************************************************************************
  *                                                                             *
  * Button & ToggleButton                                                       *

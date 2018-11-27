@@ -9,7 +9,7 @@ import javafx.scene.shape.Rectangle;
 public class Cell extends Rectangle {
     public static final Color ALIVE_COLOR = Color.YELLOW;
     public static final Color DEAD_COLOR = Color.GRAY;
-    public static final Color DROP_COLOR = Color.RED;
+    public static final Color DROP_COLOR = Color.GREENYELLOW;
 
     private boolean isAlive;
     private boolean isAliveNext;
@@ -69,7 +69,7 @@ public class Cell extends Rectangle {
 
     private void liveChange(int numLiveNeighbours) {
         if (numLiveNeighbours < 2 || numLiveNeighbours > 3) {
-// перенаселение или наоборот
+        // перенаселение или наоборот
            isAliveNext = false;
         } else {
             isAliveNext = true;
@@ -78,7 +78,7 @@ public class Cell extends Rectangle {
 
     private void deadChange(int numLiveNeighbours) {
         if (numLiveNeighbours == 3) {
-//детишки
+        //детишки
            isAliveNext = true;
         } else {
             isAliveNext = false;
