@@ -5,20 +5,21 @@ package sample.objects;
  */
 public enum Pattern {
 
-        BLOCK,
-        BEEHIVE,
-        LOAF,
-        BOAT,
-        TUB,
+    BLOCK,
+    BEEHIVE,
+    LOAF,
+    BOAT,
+    TUB,
 
-        BLINKER,
-        TOAD,
-        BEACON,
-        PULSAR,
-        PENTADECATHLON,
+    BLINKER,
+    TOAD,
+    BEACON,
+    PULSAR,
+    PENTADECATHLON,
 
-        GLIDER,
-        LIGHTWEIGHT_SPACESHIP
+    GLIDER,
+    LIGHTWEIGHT_SPACESHIP,
+    TUMBLER
 
 
 }

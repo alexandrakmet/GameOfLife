@@ -1,19 +1,24 @@
-package sample;
+package sample.controllers;
 
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.geometry.HPos;
 import javafx.geometry.Pos;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.input.*;
 import javafx.scene.layout.GridPane;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import sample.objects.Cell;
 import sample.objects.Pattern;
 import sample.objects.PatternCell;
 
+import java.io.IOException;
 import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -23,41 +28,35 @@ public class Controller {
 
     @FXML
     private ScrollPane scrollPane;
-
     @FXML
     private GridPane golPane;
-
     @FXML
     private GridPane grid;
 
+
     @FXML
     private Label generationLabel;
-
     @FXML
     private Label livecellsLabel;
-
     @FXML
     private Label selectedpatternLabel;
-
-
     @FXML
     private Label selectedpatterngLabel;
 
+
+
     @FXML
     private Button btnStep;
-
     @FXML
     private Button btnRandom;
-
     @FXML
     private Button btnStop;
-
-
     @FXML
     private Button btnStart;
 
     @FXML
     private Slider slider;
+
 
     private static final double CELL_SIZE = 10;
     private static final int ROW = 57;
@@ -66,16 +65,14 @@ public class Controller {
     private static int liveCells = 0;
 
     // 1 update per speed (in millisecond)
-    private static int SPEED = 100;
+    private int SPEED = 100;
 
     private static Cell[][] cells;
     private static boolean playing = false;
-    private static boolean isReset = false;
     private static boolean isPaused = true;
-    private static boolean isRandom = false;
 
-    private static PatternCell selectedPatternCell =
-            new PatternCell(null, CELL_SIZE);
+    private static PatternCell selectedPatternCell = new PatternCell(null, CELL_SIZE);
+
 
 
     public void setMainStage(Stage mainStage) {
@@ -85,16 +82,15 @@ public class Controller {
 
     @FXML
     private void initialize() {
+        showRules();
         init();
         gameLoop();
     }
 
-
     public void init() {
-        getRightPane();
-        getCenterPane();
+        setRightPane();
+        setCenterPane();
     }
-
 
     public void gameLoop() {
         Timer timer = new Timer();
@@ -102,6 +98,7 @@ public class Controller {
             @Override
             public void run() {
                 Platform.runLater(() -> {
+                  //  showRules();
                     if (playing) {
 
                         if (liveCells > 0) {
@@ -123,6 +120,7 @@ public class Controller {
             }
         }, 0, SPEED);
     }
+
 
     private static void prepare() {
         for (int i = 0; i < cells.length; i++) {
@@ -215,8 +213,7 @@ public class Controller {
     }
 
 
-
-    private void getCenterPane() {
+    private void setCenterPane() {
         Cell cell;
 
         cells = new Cell[ROW][COL];
@@ -239,7 +236,7 @@ public class Controller {
 
     }
 
-    private void getRightPane() {
+    private void setRightPane() {
         PatternCell patternCell;
         Label label;
         int i = 0;
@@ -273,8 +270,6 @@ public class Controller {
 
 
     }
-
-
 
 
     private static void setCellMouseClickAction(Cell cell) {
@@ -453,12 +448,18 @@ public class Controller {
 
     @FXML
     private void setStepButtonAction(ActionEvent actionEvent) {
-
         if (liveCells > 0) {
             prepare();
             update();
         }
     }
+
+   // @FXML
+   /* private void setSliderAction(ActionEvent actionEvent) {
+
+        SPEED = (int)slider.getValue();
+        gameLoop();
+    }*/
 
     @FXML
     private void setStopButtonAction(ActionEvent actionEvent) {
@@ -472,7 +473,6 @@ public class Controller {
         generation = 0;
         liveCells = 0;
         playing = false;
-        isRandom = false;
         btnStart.setText("PLAY");
         btnRandom.setDisable(false);
 
@@ -481,7 +481,6 @@ public class Controller {
     @FXML
     private void setRandomButtonAction(ActionEvent actionEvent) {
         initRandom();
-        isRandom = true;
         playing = true;
         btnRandom.setDisable(true);
         btnStart.setText("PAUSE");
@@ -525,8 +524,6 @@ public class Controller {
         });
     }
 
-
-
     private static void setCellDragEnteredAction(Cell cell) {
         cell.setOnDragEntered(new EventHandler<DragEvent>() {
             @Override
@@ -537,7 +534,6 @@ public class Controller {
             }
         });
     }
-
 
     private static void setCellDragDoneAction(Cell cell) {
         cell.setOnDragDone(new EventHandler<DragEvent>() {
@@ -560,6 +556,37 @@ public class Controller {
                     setAlive(true);
             liveCells++;
         }
+    }
+
+    private Parent fxmlEdit;
+    private FXMLLoader fxmlLoader = new FXMLLoader();
+    private Rules rulesController;
+    private Stage rulesStage;
+
+    private void showRules() {
+
+        try {
+            fxmlLoader.setLocation(getClass().getResource("../fxml/rules.fxml"));
+            fxmlEdit = fxmlLoader.load();
+            rulesController = fxmlLoader.getController();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        if (rulesStage == null) {
+            rulesStage = new Stage();
+            rulesStage.setTitle("Rules");
+            rulesStage.setMinWidth(520);
+            rulesStage.setMinHeight(250);
+            rulesStage.setResizable(false);
+            rulesStage.setScene(new Scene(fxmlEdit));
+            rulesStage.initModality(Modality.WINDOW_MODAL);
+            rulesStage.initOwner(mainStage);
+
+        }
+
+        rulesStage.showAndWait(); // для ожидания закрытия окна
+
     }
 }
 

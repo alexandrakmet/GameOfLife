@@ -9,6 +9,7 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
+import sample.controllers.Controller;
 
 public class Main extends Application {
 
@@ -24,7 +25,7 @@ public class Main extends Application {
 
 
         primaryStage.setTitle("GAME OF LIFE");
-        primaryStage.getIcons().add(new Image("file:resources/icon.png"));
+        primaryStage.getIcons().add(new Image("file:src/sample/resources/icon.png"));
         primaryStage.setMinHeight(750);
         primaryStage.setMinWidth(1100);
         primaryStage.setResizable(false);

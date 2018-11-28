@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.effect.Bloom?>
+<?import javafx.scene.effect.ColorAdjust?>
+<?import javafx.scene.effect.ImageInput?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="521.0" prefWidth="560.0" styleClass="background" stylesheets="@../style/DarkTheme.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.Rules">
+   <top>
+      <Label fx:id="imageLabel" prefHeight="146.0" prefWidth="106.0" BorderPane.alignment="CENTER">
+         <effect>
+            <ImageInput x="-10.0">
+               <source>
+                  <Image url="@../resources/name2.png" />
+               </source>
+            </ImageInput>
+         </effect>
+         <BorderPane.margin>
+            <Insets left="-450.0" />
+         </BorderPane.margin></Label>
+   </top>
+   <center>
+      <VBox prefHeight="400.0" prefWidth="450.0" styleClass="background" stylesheets="@../style/DarkTheme.css" BorderPane.alignment="CENTER">
+         <children>
+            <Label prefHeight="55.0" prefWidth="192.0" styleClass="label-header" stylesheets="@../style/DarkTheme.css" text="How It Works">
+               <VBox.margin>
+                  <Insets left="175.0" right="125.0" top="20.0" />
+               </VBox.margin>
+            </Label>
+            <TextArea editable="false" prefHeight="226.0" prefWidth="560.0" styleClass="background" stylesheets="@../style/DarkTheme.css" text="       Conway's Game of Life is a a cellular automaton invented by John Horton Conway in 1970. It is not a game in the conventional sense, but rather a simulation that runs on a grid of square cells, each of which can either be dead or alive.&#10;       When the simulation updates, living cells interact with their neighbors according to four rules. Any living cell with fewer than two live neighbors dies due to underpopulation. Living cells with four or more neighbors die through overpopulation. Living cells with two or three live neighbors continue to survive. Dead cells with three living neighbors come to life, as if via reproduction.&#10;" wrapText="true">
+               <effect>
+                  <ColorAdjust />
+               </effect>
+            </TextArea>
+            <Button fx:id="btnPlay" cancelButton="true" defaultButton="true" mnemonicParsing="false" onAction="#actionClose" prefHeight="47.0" prefWidth="121.0" text="PLAY">
+               <VBox.margin>
+                  <Insets left="210.0" top="20.0" />
+               </VBox.margin>
+            </Button>
+         </children>
+      </VBox>
+   </center>
+   <effect>
+      <Bloom />
+   </effect>
+</BorderPane>

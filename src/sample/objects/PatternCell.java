@@ -67,6 +67,16 @@ public class PatternCell extends GridPane {
                             {0, 0, 0, 0, 0, 0}
                     };
                     break;
+                case TUMBLER:
+                    data = new int[][]{
+                            {0, 1, 1, 0, 1, 1, 0},
+                            {0, 1, 1, 0, 1, 1, 0},
+                            {0, 0, 1, 0, 1, 0, 0},
+                            {1, 0, 1, 0, 1, 0, 1},
+                            {1, 0, 1, 0, 1, 0, 1},
+                            {1, 1, 0, 0, 0, 1, 1},
+                    };
+                    break;
                 case LOAF:
                     data = new int[][] {
                             {0, 0, 0, 0, 0, 0},
